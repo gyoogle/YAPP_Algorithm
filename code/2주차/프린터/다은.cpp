@@ -6,46 +6,28 @@ using namespace std;
 
 int solution(vector<int> priorities, int location) {
 	int answer = 0;
-	int lowPriorityNum;
+	int highPriorityNum;
 	int size = priorities.size();
-	queue<int> numQ;
-
-	for (int i = 0; i < size; i++)
-		numQ.push(i);
+	queue<pair<int,int>> numQ;
+	priority_queue<int> priorityQ;
 
 	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
-			if (priorities[i] < priorities[j]) {
-				numQ.push(numQ.front());
-				numQ.pop();
-				i = numQ.front();
-				j = 0;
-			}
-			else if (j == (size - 1)) {
-				answer++;
-				if (numQ.front() != location) {
-					priorities[numQ.front()] = -1;
-					numQ.pop();
-					i = numQ.front();
-					j = 0;
-				}
-				else
-					return answer;
-			}
-		}
+		numQ.push({ i, priorities[i] });
+		priorityQ.push(priorities[i]);
 	}
-}
-int main(void) {
-	int n,m,location,num;
-	vector<int> priority;
-	cin >> n;
-	for (int i = 0; i < n; i++) {
-		cin >> m >> location;
-		for (int j = 0; j < m; j++) {
-			cin >> num;
-			priority.push_back(num);
+
+	while (!priorityQ.empty()) {
+		highPriorityNum = priorityQ.top();
+		if (highPriorityNum > numQ.front().second) {
+			numQ.push(pair<int,int>(numQ.front().first, numQ.front().second));
+			numQ.pop();
 		}
-		cout << solution(priority,location) << "\n";
-		priority.clear();
+		else {
+			if (numQ.front().first == location)
+				return (answer + 1);
+			priorityQ.pop();
+			numQ.pop();
+			answer++;
+		}
 	}
 }

@@ -4,7 +4,6 @@
 using namespace std;
 vector<int> solution(vector<int> heights) {
 	int size = heights.size();
-	int *a = new int[size];
 	vector<int> answer(size);
 	stack<pair<int, int>> numStack,storedNumStack;
 	

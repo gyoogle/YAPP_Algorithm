@@ -6,6 +6,7 @@ def solution(heights):
                 answer.insert(0, len(heights[:len(heights) - idx - 1]) - idx2)
                 break
         else:
+            # for문이 끝나고 중간에 break가 되지 않으면 실행되는 for - else 이다.
             answer.insert(0, 0)
 
     return answer

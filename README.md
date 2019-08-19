@@ -83,8 +83,16 @@
 
   - 참석 : 전원 참석
   - 지각 : 정다은
-
   - 문제 코드 : [링크](<https://github.com/kim6394/YAPP_Algorithm/tree/master/code/1%EC%A3%BC%EC%B0%A8>) 
 
+  <br>
+
 - 2주차(19.08.19)
-  - 
+
+  - 참석 : 김규석, 김승연, 김태경, 박준호, 정다은, 차지원
+  - 결석 : 조홍제 (야근으로 인한 결석으로 벌금X)
+  - 문제 코드 : [링크](<https://github.com/kim6394/YAPP_Algorithm/tree/master/code/2%EC%A3%BC%EC%B0%A8>)
+
+  <br>
+
+- 3주차(19.08.26)

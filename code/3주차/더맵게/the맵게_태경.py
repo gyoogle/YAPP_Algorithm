@@ -3,7 +3,6 @@ def solution(scoville, K):
     if(len(scoville) == 1) :
         if(scoville[0] >= K) : return 0
         else : return -1
-        
     answer = 0
     h = []
     for i in scoville:

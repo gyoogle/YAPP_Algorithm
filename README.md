@@ -102,3 +102,11 @@
   - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12198>)
 
 - 4주차(19.09.02)
+
+  - 참석 : 전원 참석
+  - 지각 : 김규석, 정다은
+  - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12230>)
+
+- 5주차(19.09.07)
+
+  - 

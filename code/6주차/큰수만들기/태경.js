@@ -10,7 +10,6 @@ function solution(number, k) {
             }
         }
         arr.splice(j,1)
-        
     }
     for(let i = 0 ; i< arr.length; i++){
         answer+=arr[i]

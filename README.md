@@ -121,4 +121,12 @@
 
 - 7주차(19.09.23)
 
-  - 참석 :
+  - 참석 : 김태경, 박준호, 정다은, 조홍제
+  - 결석 : 김규석, 김승연, 차지원
+  - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12263>)
+  
+- 8주차(19.09.30)
+
+  - 참석 : 전원 참석
+  - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12421>)
+

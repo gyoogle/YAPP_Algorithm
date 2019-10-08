@@ -129,4 +129,11 @@
 
   - 참석 : 전원 참석
   - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12421>)
+  
+- 9주차(19.10.07)
+
+  - 참석 : 전원 참석
+  - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12486>)
+
+
 

@@ -46,3 +46,5 @@ function solution(n, edge) {
     }
     return answer;
 }
+
+//visited 사용해보자!

@@ -112,7 +112,7 @@
   - 참석 : 김승연, 김태경, 박준호, 정다은, 차지원, 조홍제
   - 결석 : 김규석
   - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12244>)
-  
+
 - 6주차(19.09.16) - 탐욕법(Greedy)
 
   - 참석 : 김승연, 김태경, 박준호, 정다은, 차지원
@@ -124,16 +124,24 @@
   - 참석 : 김태경, 박준호, 정다은, 조홍제
   - 결석 : 김규석, 김승연, 차지원
   - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12263>)
-  
+
 - 8주차(19.09.30)
 
   - 참석 : 전원 참석
   - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12421>)
-  
+
 - 9주차(19.10.07)
 
   - 참석 : 전원 참석
   - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/12486>)
+
+  `면접준비로 앞으로 당분간 휴식 : 김규석`
+
+- 10주차(19.10.14)
+
+  - 참석 : 김태경, 박준호, 정다은, 조홍제
+  - 결석 : 김승연, 차지원
+  - 문제 코드 : [링크](https://programmers.co.kr/learn/courses/30/parts/14393)
 
 
 

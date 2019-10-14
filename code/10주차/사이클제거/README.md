@@ -10,3 +10,5 @@
 - 컨셉설명 : https://ratsgo.github.io/data%20structure&algorithm/2017/11/23/SCC/
 
 - 코사라주 알고리즘에 대한 예시 : https://wondy1128.tistory.com/130
+
+union find 알고리즘은 시간초과(root를 검증하는 과정이 오래걸리는거같음)

@@ -11,7 +11,7 @@ pair<int, int> dfs(int i, int p) {
     for(int j : e[i]) if(j!=p) {
         if(!d[j]) {
             auto[x, y]=dfs(j, i);
-            ok&=x==0 && y<2;
+            ok = ok & x ==0 && y<2;
             a+=x, b+=y;
         }
         else if(d[j]<d[i])

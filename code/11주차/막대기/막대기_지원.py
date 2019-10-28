@@ -5,7 +5,6 @@ def cut(stick):
     while True:
         if sum == stick:
             return cnt
-
         if sum + size <= stick:
             sum += size
             size = size // 2
@@ -13,8 +12,6 @@ def cut(stick):
         else:
             size = size // 2
     return cnt
-
-
 
 if __name__ == '__main__':
     print(cut(32))

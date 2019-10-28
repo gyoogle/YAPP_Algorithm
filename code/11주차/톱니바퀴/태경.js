@@ -1,53 +1,128 @@
 
-const rightRotate = (arr)=>{
+const leftRotate = (arr)=>{
     arr.push(arr.shift())
 }
-const leftRotate = (arr)=>{
+const rightRotate = (arr)=>{
     arr.unshift(arr.pop())
 }
-const selectRotate = (current, arrow, another = [0,0,0,0,0,0,0,0], another2 = [0,0,0,0,0,0,0,0,0])=>{
+
+const arrowSelect = (topArr, arrow)=>{
     if(arrow === '1'){
-        rightRotate(current)
-        leftRotate(another)
-        leftRotate(another2)
+        rightRotate(topArr)
     }else{
-        leftRotate(current)
-        rightRotate(another)
-        rightRotate(another2)
+        leftRotate(topArr)
     }
 }
-const rotating = (topniArr, index, arrow) =>{
-    if(index === 0 ){
+const rotating2 = (topniArr, index, arrow)=>{
+    if(index === 0){
         if(topniArr[index][2] !== topniArr[index+1][6]){
-            selectRotate(topniArr[0], arrow, topniArr[1])
-        }else{
-            selectRotate(topniArr[0], arrow)
-        }
-    }else if(index === 3){
-        if(topniArr[index][6] !== topniArr[index-1][2]){
-            selectRotate(topniArr[index], arrow, topniArr[index-1])
-        }else{
-            selectRotate(topniArr[index], arrow)
-        }
-    }else{
-        if(topniArr[index][6] !== topniArr[index-1][2] && topniArr[index][2] !== topniArr[index+1][6]){
-            selectRotate(topniArr[index], arrow, topniArr[index-1], topniArr[index+1])
-        }else if (topniArr[index][6] !== topniArr[index-1][2] && topniArr[index][2] === topniArr[index+1][6] ){
-            selectRotate(topniArr[index], arrow, topniArr[index-1])
-        }else if (topniArr[index][6] === topniArr[index-1][2] && topniArr[index][2] !== topniArr[index+1][6]){
-            selectRotate(topniArr[index], arrow, topniArr[index+1])
+            let sw = true;
+            for(let i = index+1 ; i<3; i++){
+                if(topniArr[i][2] === topniArr[i+1][6]){
+                    break;
+                }
+                if(sw){
+                    arrowSelect(topniArr[i+1], arrow)
+                }else{
+                    arrowSelect(topniArr[i+1], arrow ==="1" ? "-1" : "1")
+                }
+            }
+            arrowSelect(topniArr[index], arrow)
+            arrowSelect(topniArr[index+1], arrow ==="1" ? "-1" : "1")
         }
         else{
-            selectRotate(topniArr[index], arrow)
+            arrowSelect(topniArr[index], arrow)
         }
+    }else if(index === 1 || index === 2){
+        if(topniArr[index][2] !== topniArr[index+1][6] && topniArr[index][6]=== topniArr[index-1][2]){
+            let sw = true;
+            for(let i = index+1 ; i<3; i++){
+                if(topniArr[i][2] === topniArr[i+1][6]){
+                    break;
+                }
+                if(sw){
+                    arrowSelect(topniArr[i+1], arrow)
+                }else{
+                    arrowSelect(topniArr[i+1], arrow ==="1" ? "-1" : "1")
+                }
+            }
+            arrowSelect(topniArr[index], arrow)
+            arrowSelect(topniArr[index+1], arrow ==="1" ? "-1" : "1")
+        }
+        else if(topniArr[index][2] !== topniArr[index+1][6] && topniArr[index][6]!== topniArr[index-1][2]){
+            let sw = true;
+            for(let i = index+1 ; i<3; i++){
+                if(topniArr[i][2] === topniArr[i+1][6]){
+                    break;
+                }
+                if(sw){
+                    arrowSelect(topniArr[i+1], arrow)
+                }else{
+                    arrowSelect(topniArr[i+1], arrow ==="1" ? "-1" : "1")
+                }
+            }
+            sw = true;
+            for(let i = index-1 ; i>0; i--){
+                if(topniArr[i][6] === topniArr[i-1][2]){
+                    break;
+                }
+                if(sw){
+                    arrowSelect(topniArr[i-1], arrow)
+                }else{
+                    arrowSelect(topniArr[i-1], arrow ==="1" ? "-1" : "1")
+                }
+            }
+            arrowSelect(topniArr[index], arrow)
+            arrowSelect(topniArr[index+1], arrow ==="1" ? "-1" : "1")
+            arrowSelect(topniArr[index-1], arrow ==="1" ? "-1" : "1")
+        }else if(topniArr[index][2] === topniArr[index+1][6] && topniArr[index][6]!== topniArr[index-1][2]){
+            let sw = true;
+            for(let i = index-1 ; i>0; i--){
+                if(topniArr[i][6] === topniArr[i-1][2]){
+                    break;
+                }
+                if(sw){
+                    arrowSelect(topniArr[i-1], arrow)
+                }else{
+                    arrowSelect(topniArr[i-1], arrow ==="1" ? "-1" : "1")
+                }
+            }
+            arrowSelect(topniArr[index], arrow)
+            arrowSelect(topniArr[index-1], arrow ==="1" ? "-1" : "1")     
+        }else{
+            arrowSelect(topniArr[index], arrow)
+        }
+               
+    }else if(index === 3){
+        if(topniArr[index][6] !== topniArr[index-1][2]){
+            let sw = true;
+            for(let i = index-1 ; i>0; i--){
+                if(topniArr[i][6] === topniArr[i-1][2]){
+                    break;
+                }
+                if(sw){
+                    arrowSelect(topniArr[i-1], arrow)
+                }else{
+                    arrowSelect(topniArr[i-1], arrow ==="1" ? "-1" : "1")
+                }
+            }
+            arrowSelect(topniArr[index], arrow)
+            arrowSelect(topniArr[index-1], arrow ==="1" ? "-1" : "1") 
+        }else{
+            arrowSelect(topniArr[index], arrow)
+        }
+        
     }
+    
 }
+
 const solution = (topniArr, rotateArr)=>{
     
     for(let i = 0 ; i<rotateArr.length; i++){
 
         const index = parseInt(rotateArr[i][0])
-        rotating(topniArr, index, rotateArr[i][1])
+        rotating2(topniArr, index-1, rotateArr[i][1])
+        
         
     }
     let answer = 0;

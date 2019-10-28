@@ -1,4 +1,5 @@
-def solution(X):
+def solution():
+    X = int(input())
     a = [64]
     while sum(a) > X:
         b = a.pop()
@@ -11,4 +12,4 @@ def solution(X):
     return len(a)
 
 if __name__ == "__main__":
-    print(solution(23))
+    print(solution())

@@ -152,13 +152,9 @@ const rotating2 = (topniArr, index, arrow)=>{
 }
 
 const solution = (topniArr, rotateArr)=>{
-    
     for(let i = 0 ; i<rotateArr.length; i++){
-
         const index = parseInt(rotateArr[i][0])
         rotating2(topniArr, index-1, rotateArr[i][1])
-        
-        
     }
     let answer = 0;
     let cnt = 1;

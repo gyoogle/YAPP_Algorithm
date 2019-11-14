@@ -141,7 +141,26 @@
 
   - 참석 : 김태경, 박준호, 정다은, 조홍제
   - 결석 : 김승연, 차지원
-  - 문제 코드 : [링크](https://programmers.co.kr/learn/courses/30/parts/14393)
+  - 문제 코드 : [링크](<https://programmers.co.kr/learn/courses/30/parts/14393>)
 
+- 11주차(19.10.21)
 
+  다들 사정이 생겨서 쉬게 됨
+  
+- 12주차(19.10.28)
+  
+  - 참석 : 김승연, 김태경, 박준호, 정다은, 조홍제, 차지원
+  - 문제 코드 : [링크](<https://www.acmicpc.net/problem/14891>)
+                [링크](<https://www.acmicpc.net/problem/14890>)
+                [링크](<https://www.acmicpc.net/problem/1094>)
 
+- 13주차(19.11.04)
+
+  3차 뎁캠의 여파로 쉬게 됨
+ 
+- 14주차(19.11.11)
+  - 참석 : 김승연, 김태경, 박준호, 정다은, 조홍제, 차지원
+  - 문제 코드 : [링크](<https://www.acmicpc.net/problem/1038>)
+                [링크](<https://www.acmicpc.net/problem/1099>)
+                [링크](<https://www.acmicpc.net/problem/2066>)
+                [링크](<https://www.acmicpc.net/problem/2163>)

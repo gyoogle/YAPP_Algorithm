@@ -1,44 +1,55 @@
-#include<iostream>
+#include <iostream>
 #include<string.h>
+#include <queue>
 using namespace std;
-int cabbage[50][50];
 int directx[] = { 0,0,1,-1 };
 int directy[] = { 1,-1,0,0 };
-int visited[50][50];
-int m, n, k,num = 0;
-void dfs(int x, int y) {
-	visited[x][y] = 1;
-	for (int i = 0; i < 4; i++) {
-		int dx = directx[i] + x;
-		int dy = directy[i] + y;
-		if (dx >= 0 && dy >= 0 && dx < m && dy < n && !visited[dx][dy] && cabbage[dx][dy]) 
-			dfs(dx, dy);
-	}
-}
-void searchDfs() {
+int depth[1000][1000];
+int tomato[1000][1000], m, n,maxnum = 0;
+queue<pair<int, int>> q;
+void initTomato() {
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
-			if (!visited[i][j] && cabbage[i][j]) {
-				dfs(i, j);
-				num++;
+			cin >> tomato[i][j];
+			if (tomato[i][j] == 1) 
+				q.push(make_pair(i, j));
+		}
+	}
+}
+void bfs() {
+	pair<int, int> node;
+	while (!q.empty()){
+		node = q.front();
+		q.pop();
+		for (int i = 0; i < 4; i++) {
+			int dx = directx[i] + node.first;
+			int dy = directy[i] + node.second;
+			if (dx >= 0 && dy >= 0 && dx < m && dy < n && !depth[dx][dy] && tomato[dx][dy] == 0) {
+				tomato[dx][dy] = 2;
+				depth[dx][dy] += depth[node.first][node.second] + 1;
+				q.push(make_pair(dx, dy));
+				if (maxnum < depth[dx][dy]) maxnum = depth[dx][dy];
 			}
 		}
 	}
 }
 int main(void) {
-	int t;
-	cin >> t;
-	while (t--) {
-		cin >> m >> n >> k;
-		memset(cabbage, 0, sizeof(cabbage));
-		memset(visited, 0, sizeof(visited));
-		for (int i = 0; i < k; i++) {
-			int x, y;
-			cin >> x >> y;
-			cabbage[x][y] = 1;
+	cin >> n >> m;
+	memset(depth, 0, sizeof(depth));
+	initTomato();
+	bfs();
+	bool ripeTrue = true;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			if (tomato[i][j] == 0) {
+				ripeTrue = false;
+				break;
+			}
 		}
-		searchDfs();
-		cout << num << "\n";
-		num = 0;
+		if (!ripeTrue) break;
 	}
+	if (ripeTrue)
+		cout << maxnum;
+	else
+		cout << -1;
 }

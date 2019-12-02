@@ -21,8 +21,8 @@ def search(i, j):
                 search(nx, ny)
 
 if __name__ == '__main__':
-    for i in range(1,n):
-        for j in range(1,n):
+    for i in range(n):
+        for j in range(n):
             if (complex_map[i][j] == 1):
                 search(i, j)
                 complex_num += 1

@@ -1,4 +1,4 @@
-const dfs = (isArr, initArr,i,j, cnt)=>{
+const bfs = (isArr, initArr,i,j, cnt)=>{
     let queue = []
     isArr[i][j] = 1;
     queue.push([i,j])
@@ -37,11 +37,12 @@ const solution = (initArr)=>{
     for(let i = 0 ; i<initArr.length; i++){
         for(let j = 0; j<initArr[i].length; j++){
             if(initArr[i][j] === 1&& isArr[i][j] ===0){
-                answers.push(dfs(isArr, initArr,i,j,0))
+                answers.push(bfs(isArr, initArr,i,j,0))
                 
             }
         }
     }
+    answers.sort((a,b)=> a-b)
     console.log(answers.length);
     for(let i =0 ; i< answers.length; i++){
         console.log(answers[i])

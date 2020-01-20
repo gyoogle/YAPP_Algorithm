@@ -25,20 +25,20 @@
 '''
 
 
-def solution(n):
-    if d[n] != 0:
-        return d[n]
-    for i in range(4, n + 1):
-        d[i] = (d[i - 3] + d[i - 2] + d[i - 1]) % 1000000009
-    return d[n]
-
-
-if __name__ == "__main__":
-    d = [0] * 1000000
+def solution():
+    d = [0] * 1000001
     d[0] = 0
     d[1] = 1
     d[2] = 2
     d[3] = 4
+
+    for i in range(4, 1000001):
+        d[i] = (d[i - 3] + d[i - 2] + d[i - 1]) % 1000000009
+
     T = int(input())
     for i in range(T):
-        print(solution(int(input())))
+        print(d[int(input())])
+
+
+if __name__ == "__main__":
+    solution()

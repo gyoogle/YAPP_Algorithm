@@ -1,31 +1,54 @@
 const oneRound = (input)=>{
     const currentBulidCount = input[0].split(' ').map((el)=> parseInt(el));
     const buildTimes = input[1].split(' ').map((el)=> parseInt(el));
-    const visited = new Array(currentBulidCount[0]+1).fill(false)
     buildTimes.unshift(0);
-    const treeItems = {};
-    for(let i = 1 ; i<=currentBulidCount[0]; i++){
-        treeItems[i] = [];
+    const prevNeedTree = {}; //이전에 뭘지어야 하는지 알려주는 트리
+    const nextTargetTree = {}; // 그건물을 지으면 다음건물 지을 수 있는 알려주는 트리
+    const visited = new Array(currentBulidCount[0]+1).fill(false)
+    /*트리 초기화 */
+    for(let j = 1 ; j<=currentBulidCount[0]; j++){
+        prevNeedTree[j] = [];
+        nextTargetTree[j] = [];
     }
     let i = 0
+    /* 트리 세팅 */
     for(; i<currentBulidCount[1]; i++){
         const treeItem = input[i+2].split(' ').map((el)=>parseInt(el));
-        treeItems[treeItem[1]] = [...treeItems[treeItem[1]],treeItem[0]]
+        prevNeedTree[treeItem[1]] = [...prevNeedTree[treeItem[1]],treeItem[0]]
+        nextTargetTree[treeItem[0]] = [...nextTargetTree[treeItem[0]], treeItem[1]]
     }
-    const winTarget = parseInt(input[i+2])
-    let currentNumber = winTarget;//winnerBuild
-    let totalTimes = buildTimes[currentNumber];
-    visited[winTarget] = true
+    const winTarget = parseInt(input[i+2])//이기기위한 최종 건물 번호
     
-    console.log(treeItems)
-    console.log(treeItems[currentNumber])
-    const queue = treeItems[currentNumber].map((el)=>el);
-    while(queue.length !== 0){
-        break;
+    // console.log(nextTargetTree)
+    
+    
+    
+    const queue = nextTargetTree[1].map((el)=>el);
+    
+    while(queue.length !== 0){  
+        const nowTarget = queue.shift(); //큐에서 하나를 뺀다
+        
+        //뺀 큐의 번호를 가지고 이전에 지어야할 건물들의 번호를 살핀다.
+        let worstTime = 0 ;
+        
+        for(let prevI = 0 ; prevI < prevNeedTree[nowTarget].length; prevI++){
+            if(worstTime < buildTimes[prevNeedTree[nowTarget][prevI]]){
+                worstTime = buildTimes[prevNeedTree[nowTarget][prevI]]
+            }
+        }
+        //최악의 경우의 수를 buildTimes의 자신 번호에 더해서 셋팅한다
+        if(visited[nowTarget] === false)
+            buildTimes[nowTarget] += worstTime;
+        visited[nowTarget] = true;
+        //그리고 자신의 nextTargetTree번호를 queue뒤에다가 추가시킨다.
+        for(let nextI = 0; nextI< nextTargetTree[nowTarget].length; nextI++){
+            if(visited[nextTargetTree[nowTarget][nextI]] === false)
+                queue.push(nextTargetTree[nowTarget][nextI])
+        }
     }
-    // console.log(input)
-    // console.log(buildTimes)
-    // console.log(visited)
+    
+    // 마지막으로 buildTimes[winTarget] 출력
+    console.log(buildTimes[winTarget])
     return currentBulidCount[0]+3;
 }
 
@@ -39,20 +62,12 @@ const init = (file)=>{
     }
     input.shift();
     while(input.length > 0){
-        input.splice(0,oneRound(input));
+        try{
+            input.splice(0,oneRound(input));    
+        }catch{
+            console.log(0)
+        }
     }
 }
 
 init('./input.txt')
-
-
-// {
-//     "1" : [],
-//     "2" : [1],
-//     "3" : [1],
-//     "4" ,
-//     5 ,
-//     6 : [3],
-//     7 : [6,5],
-//     8
-// }

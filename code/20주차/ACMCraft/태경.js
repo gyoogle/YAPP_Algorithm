@@ -1,4 +1,4 @@
-const oneRound = (input)=>{
+const oneRound = (input, result)=>{
     const currentBulidCount = input[0].split(' ').map((el)=> parseInt(el));
     const buildTimes = input[1].split(' ').map((el)=> parseInt(el));
     buildTimes.unshift(0);
@@ -48,8 +48,8 @@ const oneRound = (input)=>{
     }
     
     // 마지막으로 buildTimes[winTarget] 출력
-    console.log(buildTimes[winTarget])
-    return currentBulidCount[0]+3;
+    result.push(buildTimes[winTarget])
+    return currentBulidCount[1]+3;
 }
 
 const init = (file)=>{
@@ -61,13 +61,16 @@ const init = (file)=>{
         input = fs.readFileSync('/dev/stdin').toString().split('\n');
     }
     input.shift();
+    const result = []
     while(input.length > 0){
         try{
-            input.splice(0,oneRound(input));    
+            input.splice(0,oneRound(input, result));    
         }catch{
-            console.log(0)
+            break;
         }
     }
+    const answer = result.map((el)=> el+"").join('\n');
+    console.log(answer)
 }
 
 init('./input.txt')

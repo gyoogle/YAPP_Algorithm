@@ -20,10 +20,15 @@ const oneRound = (input, result)=>{
     const winTarget = parseInt(input[i+2])//이기기위한 최종 건물 번호
     
     // console.log(nextTargetTree)
-    
-    
-    
-    const queue = nextTargetTree[1].map((el)=>el);
+    const queue = []
+
+    for(let checkI = 1; checkI <= currentBulidCount[0]; checkI++){
+        if(prevNeedTree[checkI].length == 0){
+            for(let innerIndex = 0 ; innerIndex < nextTargetTree[checkI].length; innerIndex++){
+                queue.push(nextTargetTree[checkI][innerIndex])
+            }
+        }
+    }
     
     while(queue.length !== 0){  
         const nowTarget = queue.shift(); //큐에서 하나를 뺀다

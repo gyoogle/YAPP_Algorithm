@@ -5,24 +5,24 @@ function solution(s)
     const questions = s.split('')
     //스택 선언
     const stack = []; 
-    let stackLength = -1; //스택의 가장 마지막 번호를 표시
+    let stackLast = -1; //스택의 가장 마지막 번호를 표시
     //왼쪽부터 하나씩 넣는다
     for(let i = 0 ; i < questions.length; i++){
         //스택이 비어있을경우 exception 발생된다
         try{
-            if(stack[stackLength] === questions[i]){
+            if(stack[stackLast] === questions[i]){
                 //가장 마지막 번호와 현재 검사할 번호가 같으면 뺀다
                 stack.pop()
-                stackLength--;
+                stackLast--;
             }else{
                 //가장 마지막 번호와 현재 검사할 번호가 다르면 넣는다
                 stack.push(questions[i])
-                stackLength++
+                stackLast++
             }
         }catch(err){
             //비어있을경우 그냥 집어넣고 length를 1만큼 올린다
             stack.push(questions[i]);
-            stackLength++
+            stackLast++
             continue;
         }
     }
